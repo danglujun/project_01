@@ -1,0 +1,119 @@
+.w {
+    width: 1200px;
+    margin: auto;
+}
+.header {
+    height: 82px;
+    border-bottom: 2px solid #b1191a;
+}
+.logo {
+    padding-top: 20px;
+}
+.registerarea {
+    height: 520px;
+    border: 1px solid #dfdfdf;
+    margin-top: 20px;
+}
+.registerarea h3 {
+    height: 40px;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: #ececec;
+    line-height: 40px;
+    padding: 0 10px;
+    font-weight: normal;
+    font-size: 18px;
+    color: #333;
+}
+.registerarea h3 em {
+    float: right;
+    font-size: 14px;
+    color: #333;
+}
+.registerarea a {
+    color: #c81623;
+}
+.reg_form {
+    width: 600px;
+    height: 400px;
+    margin: 40px auto 0;
+}
+.reg_form li {
+    margin-bottom: 20px;
+}
+.reg_form label {
+    display: inline-block;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    text-align: right;
+}
+.inp {
+    width: 238px;
+    height: 34px;
+    border: 1px solid #999;
+    margin-left: 5px;
+}
+.error {
+    color: #df3033;
+    margin-left: 10px;
+}
+.error_ico {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../img/error.png) no-repeat;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.safe {
+    padding-left: 182px;
+    color: #b3b3b3;
+}
+.safe em {
+    padding: 0 12px;
+    color: #fff;
+}
+.ruo {
+    background-color: #de1111;
+}
+.zhong {
+    background-color: #40b83f;
+}
+.qiang {
+    background-color: #f79100;
+}
+.agree {
+    padding-top: 20px;
+    padding-left: 110px;
+}
+.agree input {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.agree a {
+    color: #1ba1e6;
+}
+.over {
+    width: 200px;
+    height: 34px;
+    background-color: #c81623;
+    margin: 30px 0 0 120px;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+}
+.footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+.copyright_links {
+    margin: 20px 0 15px 0;
+}
+.copyright_info {
+    line-height: 20px;
+}
+.copyright_split {
+    margin: 0 11px;
+    color: #999;
+}
