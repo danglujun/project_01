@@ -1,0 +1,54 @@
+
+            // 1.先准备好学生的数据
+            var datas = [
+                {
+                    name: "张三",
+                    subject: "JavaScript",
+                    score: 100,
+                },
+                {
+                    name: "李四",
+                    subject: "JavaScript",
+                    score: 90,
+                },
+                {
+                    name: "王五",
+                    subject: "JavaScript",
+                    score: 80,
+                },
+                {
+                    name: "周六",
+                    subject: "JavaScript",
+                    score: 70,
+                },
+            ];
+            // 2.往tbody里创建行：有几个人（通过数组的长度）就创建几行
+            var tbody = document.querySelector("tbody");
+            for (var i = 0; i < datas.length; i++) {
+                //外面的for循环管行 tr
+                // （1）.创建tr行
+                var tr = document.createElement("tr");
+                tbody.appendChild(tr);
+                // （2）.行里面创建单元格（跟数据有关系的3个单元格）td，单元格的数量取决于每个对象里面的属性个数，for循环遍历对象
+                for (var k in datas[i]) {
+                    //里面的for循环管列 td
+                    // 创建单元格
+                    var td = document.createElement("td");
+                    // 把对象里面的属性值datas[i][k]给td
+                    td.innerHTML = datas[i][k];
+                    tr.appendChild(td);
+                }
+                // （3）.创建有删除2个字的单元格
+                var td = document.createElement("td");
+                td.innerHTML = '<a href="javascript:;">删除</a>';
+                tr.appendChild(td);
+            }
+            // 3.删除操作
+            var as = document.querySelectorAll("a");
+            for (var i = 0; i < as.length; i++) {
+                as[i].onclick = function () {
+                    // 点击a删除当前a所在的行（链接的爸爸的爸爸）
+                    tbody.removeChild(this.parentNode.parentNode);
+                };
+            }
+        
