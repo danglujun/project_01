@@ -30,14 +30,42 @@ app.use((req, res, next) => {
 	next();
 });
 
+// 一定要在路由之前配置解析token的中间件
+const expressJWT = require('express-jwt');
+const config = require('./config');
+
+// 使用 .unless({ path: [/^\/api\//] }) 指定哪些接口不需要进行 Token 的身份认证
+app.use(expressJWT({ secret: config.jwtSecretKey }).unless(/^\/api/));
+
 // 导入并注册用户路由模块
 const userRouter = require('./router/user');
 app.use('/api', userRouter);
+
+// 导入并使用用户信息路由模块
+const userinfoRouter = require('./router/userinfo');
+// 注意：以 /my 开头的接口，都是有权限的接口，需要进行 Token 身份认证
+app.use('/my', userinfoRouter);
+
+// 导入并使用文章分类路由模块
+const artCateRouter = require('./router/artcate');
+// 为文章分类的路由挂载统一的访问前缀 /my/article
+app.use('/my/article', artCateRouter);
+
+// 导入并使用文章路由模块
+const articleRouter = require('./router/article');
+// 为文章的路由挂载统一的访问前缀 /my/article
+app.use('/my/article', articleRouter);
+
+// 托管静态资源文件
+app.use('/uploads', express.static('./uploads'));
 
 // 定义错误级别的中间件
 app.use((err, req, res, next) => {
 	// 验证失败导致的错误
 	if (err instanceof joi.ValidationError) return res.cc(err);
+
+	// 捕获身份认证失败的错误
+	if (err.name === 'UnauthorizedError') return res.cc('身份认证失败！');
 
 	// 未知错误
 	res.cc(err);

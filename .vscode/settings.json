@@ -3,7 +3,6 @@
 	"editor.fontFamily": "'JetBrains Mono','更纱黑体 SC'",
 	"editor.fontLigatures": null,
 	"prettier.tabWidth": 4,
-	"editor.formatOnPaste": true,
 	"editor.formatOnSave": true,
 	"editor.formatOnType": true,
 	"editor.wordWrap": "on",
