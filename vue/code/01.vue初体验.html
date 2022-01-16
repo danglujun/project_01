@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 希望Vue控制下面的这个div，把数据填充到里面 -->
+    <div class="app">{{username}}</div>
+    <!-- 1.导入Vue的库文件，在window全局就有了Vue这个构造函数 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 2.创建Vue的实例对象 -->
+    <script>
+      // 创建Vue的实例对象
+      const app = new Vue({
+        // el属性是固定的写法，表示当前app实例要控制页面上的哪个区域，接收的值是一个选择器
+        el: '.app',
+        // data对象就是要渲染到页面上的数据
+        data: {
+          username: 'zs'
+        }
+      })
+    </script>
+  </body>
+</html>
