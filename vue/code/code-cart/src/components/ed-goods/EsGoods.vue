@@ -3,10 +3,10 @@
     <!-- 左侧图片区域 -->
     <div class="left">
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" :id="id" />
+        <input type="checkbox" class="custom-control-input" :id="id" :checked="checked" @change="onCheckBoxChange" />
         <label class="custom-control-label" :for="id">
           <!-- 商品的缩略图 -->
-          <img src="" alt="商品图片" class="thumb" />
+          <img :src="thumb" alt="商品图片" class="thumb" />
         </label>
       </div>
     </div>
@@ -14,20 +14,25 @@
     <!-- 右侧信息区域 -->
     <div class="right">
       <!-- 商品名称 -->
-      <div class="top">xxxx</div>
+      <div class="top">{{ title }}</div>
       <div class="bottom">
         <!-- 商品价格 -->
-        <div class="price">¥0.00</div>
+        <div class="price">¥{{ price.toFixed(2) }}</div>
         <!-- 商品数量 -->
-        <div class="count">数量</div>
+        <div class="count">
+          <es-counter :num="count" :min="1" @numChange="getNumber"></es-counter>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import EsCounter from '../es-counter/EsCounter.vue'
+
 export default {
   name: 'EsGoods',
+  emits: ['stateChange', 'countChange'],
   props: {
     id: {
       type: [String, Number],
@@ -53,6 +58,24 @@ export default {
       type: Boolean,
       required: true
     }
+  },
+  methods: {
+    onCheckBoxChange(e) {
+      this.$emit('stateChange', {
+        id: this.id,
+        value: e.target.checked
+      })
+    },
+    getNumber(num) {
+      // console.log(num)
+      this.$emit('countChange', {
+        id: this.id,
+        value: num
+      })
+    }
+  },
+  components: {
+    EsCounter
   }
 }
 </script>

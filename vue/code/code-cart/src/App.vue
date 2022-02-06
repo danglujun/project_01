@@ -1,8 +1,8 @@
 <template>
   <div class="app-container">
     <es-header title="购物车案例"></es-header>
-    <es-goods v-for="item in goodslist" :key="item.id" :id="item.id" :title="item.goods_name"></es-goods>
-    <es-footer @fullChange="onFullStateChange"></es-footer>
+    <es-goods v-for="item in goodslist" :key="item.id" :id="item.id" :thumb="item.goods_img" :title="item.goods_name" :price="item.goods_price" :count="item.goods_count" :checked="item.goods_state" @stateChange="onGoodsStateChange" @countChange="onGoodsCountChange"></es-goods>
+    <es-footer :amount="amount" :total="total" @fullChange="onFullStateChange"></es-footer>
   </div>
 </template>
 
@@ -32,7 +32,44 @@ export default {
     },
     // 监听全选按钮的变化
     onFullStateChange(isFull) {
-      console.log(isFull)
+      // console.log(isFull)
+      this.goodslist.filter(x => (x.goods_state = isFull))
+    },
+    // 监听商品勾选状态变化的事件
+    onGoodsStateChange(e) {
+      // console.log(e)
+      const findResult = this.goodslist.find(x => x.id === e.id)
+      if (findResult) {
+        findResult.goods_state = e.value
+      }
+    },
+    onGoodsCountChange(e) {
+      const findResult = this.goodslist.find(x => x.id === e.id)
+      if (findResult) {
+        findResult.goods_count = e.value
+      }
+    }
+  },
+  computed: {
+    // 已勾选商品的总价格
+    amount() {
+      let a = 0
+      this.goodslist
+        .filter(x => x.goods_state)
+        .forEach(x => {
+          a += x.goods_price * x.goods_count
+        })
+      return a
+    },
+    // 已勾选商品的总数量
+    total() {
+      let t = 0
+      this.goodslist
+        .filter(x => x.goods_state)
+        .forEach(x => {
+          t += x.goods_count
+        })
+      return t
     }
   },
   components: {
@@ -46,5 +83,6 @@ export default {
 <style lang="less" scoped>
 .app-container {
   padding-top: 45px;
+  padding-bottom: 50px;
 }
 </style>
