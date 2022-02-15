@@ -1,0 +1,9 @@
+.parent {
+  background-color: skyblue;
+  padding: 20px;
+  height: 200px;
+}
+.child {
+  background-color: #eee;
+  height: 100px;
+}
