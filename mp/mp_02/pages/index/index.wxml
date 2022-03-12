@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view>{{info}}</view>
+<image src="{{imgSrc}}" mode="widthFix"></image>
+<view>{{randomNum1>=5?'随机数字≥5':'随机数字＜5'}}</view>
+<view>100以内的随机数：{{randomNum2*100}}</view>
+<!-- 事件绑定 -->
+<button type="primary" bindtap="btnTapHandler">按钮</button>
+<button type="primary" bindtap="countChange">+1</button>
+<button type="primary" bindtap="btnTap2" data-info="{{2}}">+2</button>
+<input type="text" value="{{msg}}" bindinput="iptChange" />
+<!-- 条件渲染 -->
+<view wx:if="{{type===1}}">男</view>
+<view wx:elif="{{type===2}}">女</view>
+<view wx:else>保密</view>
+<block wx:if="{{true}}">
+  <view>1</view>
+  <view>2</view>
+</block>
+<view hidden="{{flag}}">hidden</view>
+<!-- 列表渲染 -->
+<view wx:for="{{arr1}}" wx:key="index">
+  索引是：{{index}}，item是：{{item}}
+</view>
+<view>~~~~~~~~</view>
+<view wx:for="{{userList}}" wx:key="id" class="username">
+  item是：{{item.name}}
+</view>
