@@ -1,0 +1,8 @@
+<!--pages/home/home.wxml-->
+<!-- <text>pages/home/home.wxml</text>
+<my-test max="9"></my-test> -->
+<!-- <my-test2></my-test2> -->
+<!-- <my-test3></my-test3> -->
+<my-test4 count="{{count}}" bind:sync="syncCount" class="customA"></my-test4>
+<view>父组件中，count的值是：{{count}}</view>
+<button bindtap="getChild">获取子组件的实例对象</button>

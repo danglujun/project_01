@@ -1,0 +1,9 @@
+/**index.wxss**/
+@import '/common/common.wxss';
+
+input {
+  border: 1px solid red;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+}
