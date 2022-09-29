@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<script src="animate.js"></script>
-		<style>
-			.sliderbar {
-				position: absolute;
-				right: 0;
-				top: 500px;
-				width: 50px;
-				height: 30px;
-			}
-			span {
-				position: absolute;
-				top: 0;
-				right: 0;
-				width: 50px;
-				height: 30px;
-				line-height: 30px;
-				background-color: pink;
-				text-align: center;
-				color: #fff;
-				z-index: 999;
-			}
-			.con {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 150px;
-				height: 30px;
-				line-height: 30px;
-				background-color: purple;
-				text-align: center;
-				color: #fff;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="sliderbar">
-			<span>←</span>
-			<div class="con">问题反馈</div>
-		</div>
-		<script>
-			var sliderbar = document.querySelector('.sliderbar');
-			var con = document.querySelector('.con');
-			sliderbar.addEventListener('mouseenter', function () {
-				animate(con, -150, function () {
-					sliderbar.children[0].innerHTML = '→';
-				});
-			});
-			sliderbar.addEventListener('mouseleave', function () {
-				animate(con, 150, function () {
-					sliderbar.children[0].innerHTML = '←';
-				});
-			});
-		</script>
-	</body>
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <script src="animate.js"></script>
+  <style>
+    .sliderbar {
+      position: absolute;
+      right: 0;
+      top: 500px;
+      width: 50px;
+      height: 30px;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 30px;
+      line-height: 30px;
+      background-color: pink;
+      text-align: center;
+      color: #fff;
+      z-index: 999;
+    }
+
+    .con {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 30px;
+      line-height: 30px;
+      background-color: purple;
+      text-align: center;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<div class="sliderbar">
+  <span>←</span>
+  <div class="con">问题反馈</div>
+</div>
+<script>
+  const sliderbar = document.querySelector('.sliderbar');
+  const con = document.querySelector('.con');
+  sliderbar.addEventListener('mouseenter', function () {
+    animate(con, -150, function () {
+      sliderbar.children[0].innerHTML = '→';
+    });
+  });
+  sliderbar.addEventListener('mouseleave', function () {
+    animate(con, 150, function () {
+      sliderbar.children[0].innerHTML = '←';
+    });
+  });
+</script>
+</body>
 </html>

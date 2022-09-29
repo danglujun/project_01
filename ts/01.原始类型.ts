@@ -3,4 +3,5 @@ let myName: string = 'lijiajia'
 let isLoading: boolean = false
 let a: null = null
 let b: undefined = undefined
-let s:symbol=Symbol()
+// @ts-ignore
+let s: symbol = Symbol()

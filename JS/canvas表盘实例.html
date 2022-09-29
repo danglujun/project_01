@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #clock {
+      background-color: grey;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+<canvas id="clock" width="400" height="400"></canvas>
+</body>
+
+<script>
+  window.addEventListener('load', function () {
+    const clock = document.querySelector('#clock');
+    if (clock.getContext) {
+      const ctx = clock.getContext('2d');
+      ctx.save()
+      ctx.lineWidth = 8
+      ctx.strokeStyle = 'black'
+      ctx.lineCap = 'round'
+      ctx.translate(200, 200)
+      ctx.rotate(-90 * Math.PI / 180)
+      ctx.beginPath()
+
+      // 外层空心圆盘
+      ctx.save()
+      ctx.lineWidth = 14
+      ctx.strokeStyle = '#325fa2'
+      ctx.beginPath()
+      ctx.arc(0, 0, 140, 0, 360 * Math.PI / 180)
+      ctx.stroke()
+      ctx.restore()
+
+      // 时针刻度
+      ctx.save()
+      for (let i = 0; i < 12; i++) {
+        ctx.beginPath()
+        ctx.rotate(30 * Math.PI / 180)
+        ctx.moveTo(100, 0)
+        ctx.lineTo(120, 0)
+        ctx.stroke()
+      }
+      ctx.restore()
+
+      ctx.restore()
+    }
+  })
+</script>
+
+</html>

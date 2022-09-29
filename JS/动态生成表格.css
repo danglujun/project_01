@@ -1,16 +1,18 @@
 
-            table {
-                width: 500px;
-                border-collapse: collapse;
-                margin: 100px auto;
-                text-align: center;
-            }
-            th,
-            td {
-                border: 1px solid #000;
-            }
-            thead tr {
-                height: 40px;
-                background-color: #ccc;
-            }
+table {
+  width: 500px;
+  border-collapse: collapse;
+  margin: 100px auto;
+  text-align: center;
+}
+
+th,
+td {
+  border: 1px solid #000;
+}
+
+thead tr {
+  height: 40px;
+  background-color: #ccc;
+}
         
